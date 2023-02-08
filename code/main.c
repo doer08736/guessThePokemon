@@ -32,12 +32,8 @@ void removeSpacesFromEnd(char *str) {
 
 void titleCase(char *str){
     *str = toupper(*str);
-    for(register unsigned short int i=1; *(str+i); ++i){
-        if(*(str+(i-1))==' ')
-            *(str+i) = toupper(*(str+i));
-        else
-            *(str+i) = tolower(*(str+i));
-    }
+    for(register unsigned short int i=1; *(str+i); ++i)
+        *(str+i) = (*str+(i-1)==' ') ? toupper(*(str+i)) : tolower(*(str+i));
 }
 
 void hideSomeChar(char *str){
