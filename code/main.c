@@ -37,7 +37,7 @@ void titleCase(char *str){
 }
 
 void hideSomeChar(char *str){
-	unsigned short int n = strlen(str);
+    unsigned short int n = strlen(str);
     unsigned short int index;
 	for(register unsigned short int i=0; i<n/2-1; ++i){
         index = randomNumber(n-1, 1);
@@ -79,6 +79,7 @@ int startGame(char *generated){
 
 int callback(void *data, int argc, char *argv[], char **azColName){
     startGame(argv[0]);
+    return 1;
 }
 
 void start(){
@@ -115,7 +116,7 @@ int main(int argc, char *argv[]){
 
     while(1){
         printf("1. play\n2. quit\nenter your choice: ");
-        scanf("%d", &n);
+        scanf("%hu", &n);
         switch(n){
             case 1:
                 start();
