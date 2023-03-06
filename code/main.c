@@ -5,7 +5,7 @@
 # include <stdlib.h>
 # include <sqlite3.h>
 
-# define MAX 100
+# define MAX_CHAR 100
 # define TOTAL 10
 # define MIN_CATALOG 1
 # define MAX_CATALOG 1010
@@ -55,8 +55,8 @@ void closeConnection(){
 }
 
 int startGame(char *generated){
-    char guess[MAX];
-    char hiddenChar[MAX];
+    char guess[MAX_CHAR];
+    char hiddenChar[MAX_CHAR];
 
     strcpy(hiddenChar, generated);
     hideSomeChar(hiddenChar);
@@ -83,7 +83,7 @@ int callback(void *data, int argc, char *argv[], char **azColName){
 }
 
 void start(){
-    char query[MAX];
+    char query[MAX_CHAR];
     char *zErrMsg = 0;
 
     for(register unsigned short int i=0; i<TOTAL; ++i){
@@ -112,7 +112,7 @@ int main(int argc, char *argv[]){
         closeConnection(dbHandler);
     }
     unsigned short int n;
-    char query[MAX];
+    char query[MAX_CHAR];
 
     while(1){
         printf("1. play\n2. quit\nenter your choice: ");
