@@ -12,6 +12,17 @@ Simple program a [pokémon](https://www.google.com/search?q=pokemon) guessing ga
 ### Installations
 * [GCC](https://www.google.com/search?q=gcc) compiler
 
+### Step 0:
+To run this code use:
+```
+git clone https://github.com/doer08736/GuessThePokemon
+```
+Run the command to get in to the directory in terminal/powershell:
+```
+cd GuessThePokemon
+```
+Now go right below and follow the step if you are a linux user or else scroll down if you are windows user.
+
 ### How to run (Linux)
 #### Step 1:
 Install [libsqlite3-dev](https://www.google.com/search?q=libsqlite3-dev)
