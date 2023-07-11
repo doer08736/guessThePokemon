@@ -54,11 +54,11 @@ void closeConnection(){
     exit(0);
 }
 
-int startGame(char *generated){
+int startGame(void *data, int argc, char *argv[], char **azColName){
     char guess[MAX_CHAR];
     char hiddenChar[MAX_CHAR];
 
-    strcpy(hiddenChar, generated);
+    strcpy(hiddenChar, argv[0]);
     hideSomeChar(hiddenChar);
 
     printf("\n\t--Guess the Pokemon--\n");
@@ -69,8 +69,8 @@ int startGame(char *generated){
     removeSpacesFromEnd(guess);
     titleCase(guess);
 
-    if(strcmp(generated, guess)!=0){
-        printf("\n   [Boo...wrong idiot! It was: %s]\n\n", generated);
+    if(strcmp(argv[0], guess)!=0){
+        printf("\n   [Boo...wrong idiot! It was: %s]\n\n", argv[0]);
         return 0;
     }
     printf("\n\t  [Correct guess!]\n\n");
@@ -78,12 +78,7 @@ int startGame(char *generated){
     return 1;
 }
 
-int callback(void *data, int argc, char *argv[], char **azColName){
-    startGame(argv[0]);
-    return 1;
-}
-
-void start(){
+void play(){
     char query[MAX_CHAR];
     char *zErrMsg = 0;
 
@@ -93,7 +88,7 @@ void start(){
             "SELECT Name FROM pokemonData WHERE Catalog='%d';",
             randomNumber(MAX_CATALOG, MIN_CATALOG)
         );
-        sqlite3_exec(dbHandler, query, callback, "nothing", &zErrMsg);
+        sqlite3_exec(dbHandler, query, startGame, "nothing", &zErrMsg);
     }
     printf("\t  [Your score: %d/%d]\n\n", score, TOTAL);
     score = 0;
@@ -121,7 +116,7 @@ int main(int argc, char *argv[]){
         scanf("%hu", &n);
         switch(n){
             case 1:
-                start();
+                play();
                 break;
             case 2:
                 closeConnection();
