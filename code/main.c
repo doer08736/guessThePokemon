@@ -61,8 +61,9 @@ int startGame(char *generated){
     strcpy(hiddenChar, generated);
     hideSomeChar(hiddenChar);
 
-    printf("\n\t--Guess the pokemon--\n");
+    printf("\n\t--Guess the Pokemon--\n");
     printf("\t\t%s\n=> ", hiddenChar);
+    fflush(stdout);
     scanf(" %[^\n]s", guess);
 
     removeSpacesFromEnd(guess);
@@ -116,6 +117,7 @@ int main(int argc, char *argv[]){
 
     while(1){
         printf("1. play\n2. quit\nenter your choice: ");
+        fflush(stdout);
         scanf("%hu", &n);
         switch(n){
             case 1:
