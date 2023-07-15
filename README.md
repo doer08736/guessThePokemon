@@ -27,7 +27,7 @@ docker build -t gtp:v0 .
 #### Step 2:
 Create container and run
 ```
-docker run --rm -it --name GuessThePokemon gtp:v0
+docker run --rm -it gtp:v0
 ```
 
 ## How to run (Linux)
