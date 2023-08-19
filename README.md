@@ -14,7 +14,7 @@ Simple program a [pokémon](https://www.google.com/search?q=pokemon) guessing ga
 ### Step 0:
 To run this code use:
 ```
-git clone https://github.com/doer08736/GuessThePokemon
+git clone https://github.com/doer08736/guessThePokemon
 ```
 
 ## How to run (Docker)
@@ -38,7 +38,7 @@ Debian:
 ```
 sudo apt install libsqlite3-dev
 ```
-Manjaro:
+Arch Linux
 ```
 sudo pacman -S sqlite
 ```
@@ -46,7 +46,7 @@ sudo pacman -S sqlite
 #### Step 2:
 Head on to code directory
 ```
-cd GuessThePokemon/code
+cd guessThePokemon/code
 ```
 compile & run
 ```
@@ -62,7 +62,7 @@ Extract the downloaded zip file and copy only the sqlite3.c file to code directo
 #### Step 2:
 Head on to code directory
 ```
-cd GuessThePokemon/code
+cd guessThePokemon/code
 ```
 In code main.c line number 6 change
 ```
